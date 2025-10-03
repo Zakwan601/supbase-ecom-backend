@@ -49,3 +49,6 @@ tinify==1.7.1
 typing_extensions==4.12.2
 tzdata==2024.1
 
+# Deployment / production packages
+gunicorn>=20.1.0
+whitenoise>=6.5
