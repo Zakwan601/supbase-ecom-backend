@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!_5385wb7pm^5i06q@%vl82zb1vv5l8o)ifk@kvcreuyvs*wbn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["supbase-ecom-backend.onrender.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -126,5 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "http://localhost:5174",  # your React dev server
+    "http://localhost:5174",
+    "https://www.playmartbd.com"  
 ]
