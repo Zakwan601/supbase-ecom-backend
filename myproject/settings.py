@@ -1,19 +1,50 @@
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / ".env")
+
+
+def env_bool(name, default=False):
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def env_list(name):
+    return [
+        item.strip()
+        for item in os.getenv(name, "").split(",")
+        if item.strip()
+    ]
+
+
+def append_env_values(defaults, env_name):
+    values = []
+    for value in [*defaults, *env_list(env_name)]:
+        if value not in values:
+            values.append(value)
+    return values
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!_5385wb7pm^5i06q@%vl82zb1vv5l8o)ifk@kvcreuyvs*wbn'
+SECRET_KEY = os.environ["SECRET_KEY"].strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env_bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["supbase-ecom-backend.onrender.com", "localhost", "127.0.0.1", "https://playmartbd.com", "supbase-zuanshi-backend.onrender.com"]
+ALLOWED_HOSTS = append_env_values(
+    ["supbase-ecom-backend.onrender.com", "localhost", "127.0.0.1", "https://playmartbd.com", "supbase-zuanshi-backend.onrender.com"],
+    "ALLOWED_HOSTS",
+)
 
 
 # Application definition
@@ -112,13 +143,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "https://www.playmartbd.com",
-    "https://supabase-ecom-testing-ground.onrender.com",
-    "https://www.bebeee.store",
-    "https://supabase-zuanshi.onrender.com",
-    "https://playmartbd.com",
-    "https://supbase-zuanshi-backend.onrender.com"
-]
+CORS_ALLOWED_ORIGINS = append_env_values(
+    [
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "https://www.playmartbd.com",
+        "https://supabase-ecom-testing-ground.onrender.com",
+        "https://www.bebeee.store",
+        "https://supabase-zuanshi.onrender.com",
+        "https://playmartbd.com",
+        "https://supbase-zuanshi-backend.onrender.com",
+    ],
+    "CORS_ALLOWED_ORIGINS",
+)
