@@ -119,4 +119,5 @@ CORS_ALLOWED_ORIGINS = [
     "https://supabase-ecom-testing-ground.onrender.com",
     "https://www.bebeee.store",
     "https://supabase-zuanshi.onrender.com",
+    "https://playmartbd.com"
 ]
