@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-!_5385wb7pm^5i06q@%vl82zb1vv5l8o)ifk@kvcreuyvs*wbn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["supbase-ecom-backend.onrender.com", "localhost", "127.0.0.1", "https://playmartbd.com"]
+ALLOWED_HOSTS = ["supbase-ecom-backend.onrender.com", "localhost", "127.0.0.1", "https://playmartbd.com", "supbase-zuanshi-backend.onrender.com"]
 
 
 # Application definition
@@ -119,5 +119,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://supabase-ecom-testing-ground.onrender.com",
     "https://www.bebeee.store",
     "https://supabase-zuanshi.onrender.com",
-    "https://playmartbd.com"
+    "https://playmartbd.com",
+    "https://supbase-zuanshi-backend.onrender.com"
 ]
