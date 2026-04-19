@@ -2,17 +2,10 @@
 import requests
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from imagekitio import ImageKit
 import base64
 import json
 import tinify
-
-# ImageKit config
-imagekit = ImageKit(
-    private_key="private_8wYbxoINX83O+QgkmJVErl8DRWA=",
-    public_key="public_b1sQ/8elvKd9V/hGdmIbuNec55k=",
-    url_endpoint="https://ik.imagekit.io/zakwan601"
-)
+from .imagekit_config import imagekit
 
 
 # -----------------------
@@ -50,7 +43,6 @@ def proxy_image(request):
 # api/views.py
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from imagekitio import ImageKit
 import json
 import base64
 
@@ -100,7 +92,6 @@ def upload_image(request):
 # api/views.py
 
 from django.http import JsonResponse
-from imagekitio import ImageKit
 
 
 def imagekit_auth(request):
