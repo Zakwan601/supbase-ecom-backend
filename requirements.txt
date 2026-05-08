@@ -13,6 +13,7 @@ charset-normalizer==3.4.1
 distlib==0.3.8
 dj-database-url==2.3.0
 Django==5.0.7
+fastapi==0.116.1
 django-appconf==1.1.0
 django-cloudinary-storage==0.3.0
 django-cors-headers==4.6.0
@@ -27,6 +28,7 @@ packaging==24.2
 pilkit==3.0
 pillow==10.4.0
 platformdirs==4.2.2
+playwright==1.54.0
 propcache==0.3.2
 proto-plus==1.25.0
 protobuf==5.29.2
@@ -47,6 +49,7 @@ sqlparse==0.5.1
 tinify==1.7.1
 typing_extensions==4.12.2
 tzdata==2024.1
+uvicorn[standard]==0.35.0
 
 # Deployment / production packages
 gunicorn>=20.1.0
