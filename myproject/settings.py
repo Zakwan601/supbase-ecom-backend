@@ -42,7 +42,7 @@ SECRET_KEY = os.environ["SECRET_KEY"].strip()
 DEBUG = env_bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = append_env_values(
-    ["supbase-ecom-backend.onrender.com", "localhost", "127.0.0.1", "https://playmartbd.com", "supbase-zuanshi-backend.onrender.com"],
+    ["supbase-ecom-backend.onrender.com", "localhost", "127.0.0.1", "https://playmartbd.com", "supbase-zuanshi-backend.onrender.com", "https://supbase-ecom-backend-ggtu.onrender.com"],
     "ALLOWED_HOSTS",
 )
 
@@ -153,6 +153,7 @@ CORS_ALLOWED_ORIGINS = append_env_values(
         "https://supabase-zuanshi.onrender.com",
         "https://playmartbd.com",
         "https://supbase-zuanshi-backend.onrender.com",
+        "https://supbase-ecom-backend-ggtu.onrender.com",
     ],
     "CORS_ALLOWED_ORIGINS",
 )
